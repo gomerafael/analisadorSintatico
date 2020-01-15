@@ -1,0 +1,97 @@
+1 Inicial -> Var Ini
+
+2 Var -> var { Declaracao }
+
+3 Ini -> ini { Comando } 
+
+4 Declaracao -> Tipo id Declaracao2
+5 Declaracao -> _
+
+6 Declaracao2 -> = Valor ; Declaracao
+7 Declaracao2 -> ; Declaracao
+
+8 Tipo -> int
+9 Tipo -> float
+10 Tipo -> boolean
+11 Tipo -> char
+
+12 Comando -> id = Atribuicao ; Comando
+13 Comando -> if ( Expressao_relacional ) { Comando Break } Else Comando
+14 Comando -> choice ( id ) { Option None } Comando
+15 Comando -> for ( id = Atribuicao ; Expressao_relacional ; id = Expressao_aritmetica ) { Comando } Comando
+16 Comando -> while ( Expressao_relacional ) { Comando } Comando
+17 Comando -> print ( Print ) ; Comando 
+18 Comando -> read ( id ) ; Comando
+19 Comando -> _
+
+20 Valor -> valor_booleano 
+21 Valor -> valor_inteiro 
+22 Valor -> valor_float
+23 Valor -> valor_caractere
+
+24 Atribuicao -> valor_booleano Aux1
+25 Atribuicao -> valor_inteiro Aux3
+26 Atribuicao -> valor_float Aux3
+27 Atribuicao -> valor_caractere
+28 Atribuicao -> id Aux5
+29 Atribuicao -> ! Aux6
+
+30 Aux1 -> operador_booleano Aux2	
+31 Aux1 -> _
+
+32 Aux2 -> id
+33 Aux2 -> valor_booleano
+
+34 Aux3 -> operador_aritmetico Aux4
+35 Aux3 -> _
+
+36 Aux4 -> id
+37 Aux4 -> valor_inteiro
+38 Aux4 -> valor_float
+
+39 Aux5 -> operador_aritmetico Aux4
+40 Aux5 -> Aux1
+
+41 Aux6 -> valor_booleano Aux1
+42 Aux6 -> id Aux1
+
+43 Expressao_relacional -> id Aux10
+44 Expressao_relacional -> valor_float Aux7 
+45 Expressao_relacional -> valor_inteiro Aux7
+46 Expressao_relacional -> valor_booleano Aux8 
+47 Expressao_relacional -> valor_caractere Aux9
+
+48 Aux7 -> operador_relacional Aux4
+49 Aux7 -> operador_igualdade Aux4
+
+50 Aux10 -> operador_relacional Aux4
+51 Aux10 -> operador_igualdade Aux11
+
+52 Aux11 -> valor_booleano
+53 Aux11 -> Aux4
+
+54 Aux8 -> operador_igualdade Aux2
+55 Aux8 -> _
+
+56 Aux9 -> operador_igualdade valor_caractere
+
+57 Print -> id
+58 Print -> string
+
+59 Else -> else { Comando Break }
+60 Else -> _
+
+61 Break -> break ;
+62 Break -> _
+
+63 Option -> option ( Valor ) { Comando } Aux12
+
+64 Aux12 -> Option
+65 Aux12 -> _
+
+66 None -> none { Comando }
+67 None -> _
+
+68 Expressao_aritmetica -> id operador_aritmetico Aux4
+69 Expressao_aritmetica -> valor_inteiro operador_aritmetico Aux4
+70 Expressao_aritmetica -> valor_float operador_aritmetico  Aux4						
